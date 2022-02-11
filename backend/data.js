@@ -5,20 +5,20 @@ const data = {
         {
             name: 'Cliff',
             email: 'cliff@cliff.com',
-            password: bcrypt.hashSync('1234',8),
+            password: bcrypt.hashSync('1234', 8),
             isAdmin: true,
         },
         {
             name: 'John',
             email: 'john@john.com',
-            password: bcrypt.hashSync('1234',8),
+            password: bcrypt.hashSync('1234', 8),
             isAdmin: false,
         },
     ],
     products: [
         {
-            _id: '1',
-            name: 'Nike Slim Shirt',
+
+            name: 'Nike sleve Shirt',
             category: 'Shirt',
             image: '/images/1.jpg',
             price: 120,
@@ -29,8 +29,8 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '2',
-            name: 'Nike Slim Shirt',
+
+            name: 'Nike Slim',
             category: 'Pants',
             image: '/images/2.jpg',
             price: 170,
@@ -41,8 +41,8 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '3',
-            name: 'Nike Slim Shirt',
+
+            name: 'Gucci Slim Shirt',
             category: 'Shirt',
             image: '/images/3.jpg',
             price: 130,
@@ -53,8 +53,8 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '4',
-            name: 'Nike Slim Shirt',
+
+            name: 'Gucci Slim',
             category: 'Shirt',
             image: '/images/1.jpg',
             price: 150,
@@ -65,8 +65,8 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '5',
-            name: 'Nike Slim Shirt',
+
+            name: 'Puma Slim Shirt',
             category: 'Pants',
             image: '/images/2.jpg',
             price: 90,
@@ -77,8 +77,8 @@ const data = {
             description: 'High quality product',
         },
         {
-            _id: '6',
-            name: 'Nike Slim Shirt',
+
+            name: 'Puma Slim',
             category: 'Shirt',
             image: '/images/3.jpg',
             price: 100,
@@ -88,7 +88,7 @@ const data = {
             numReviews: 10,
             description: 'High quality product',
         },
-       
+
     ]
 };
 

@@ -5,8 +5,8 @@ import { Link, useParams } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
+const history = createBrowserHistory();
 export default function CartScreen(props) {
-    const history = createBrowserHistory();
     const { id } = useParams();
     const productId = id;
     const qty = history.location.search
@@ -25,19 +25,19 @@ export default function CartScreen(props) {
         dispatch(removeFromCart(id));
     }
 
-    // const checkOutHandler = () => {
-    //     props.history.push('/signin?redirect=shipping');
-    // }
+    const checkOutHandler = () => {
+        history.push('/signin?redirect=shipping');
+    }
 
     return (
         <div className='row top'>
             <div className='col-2'>
                 <h1>Shopping Cart</h1>
                 {cartItems.length === 0 ?
-                    <MessageBox>
+                    (<MessageBox>
                         Cart is empty. <Link to="/">Go Shopping</Link>
                     </MessageBox>
-                    : (
+                    ) : (
                         <ul>
                             {
                                 cartItems.map(item => (
@@ -70,7 +70,7 @@ export default function CartScreen(props) {
                                 ))
                             }
                         </ul>
-                    )}
+                    )};
             </div>
             <div className='col-1'>
                 <div className='card card-body'>
@@ -82,13 +82,13 @@ export default function CartScreen(props) {
                             </h2>
                         </li>
                         <button type='button'
-                            // onClick={checkOutHandler}
+                            onClick={checkOutHandler}
                             className='primary block'
                             disabled={cartItems.length === 0}
-                        >
-                            <Link to={'/signin?redirect=shipping'}>
+                        >Proceed to Checkout
+                            {/* <Link to={'/signin?redirect=shipping'}>
                                 Proceed to Checkout
-                            </Link>
+                            </Link> */}
 
                         </button>
                     </ul>
