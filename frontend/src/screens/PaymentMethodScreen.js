@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { createBrowserHistory } from 'history';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../actions/cartActions';
 
-const history = createBrowserHistory();
 
 
 export default function PaymentMethodScreen() {
+    const navigate = useNavigate();
     const cart = useSelector(state => state.cart);
     const { shippingAddress } = cart;
     if (!shippingAddress) {
-        history.push('/shipping');
+        navigate('/shipping');
     }
     const [paymentMethod, setPaymentMethod] = useState('MoMo');
     const dispatch = useDispatch();
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(savePaymentMethod(paymentMethod));
-        history.push('/placeorder');
+        navigate('/placeorder');
     }
 
 
@@ -29,15 +29,15 @@ export default function PaymentMethodScreen() {
                 <h1>Payment Method</h1>
             </div>
             <div>
-                <div>
-                    <input type="radio" id='momo' value="Momo" name="paymentMethod" required checked
+                <div className='paymentType'>
+                    <input type="radio" id='momo' value="Momo" name="paymentMethod" required 
                         onChange={e => setPaymentMethod(e.target.value)}></input>
                     <label htmlFor='momo'>Momo</label>
                 </div>
             </div>
             <div>
-                <div>
-                    <input type="radio" id='paypal' value="Paypal" name="paymentMethod" required
+                <div className='paymentType'>
+                    <input type="radio" id='paypal' value="Paypal" name="paymentMethod" required checked
                         onChange={e => setPaymentMethod(e.target.value)}></input>
                     <label htmlFor='paypal'>Paypal</label>
                 </div>

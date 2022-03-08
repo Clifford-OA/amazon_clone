@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { createBrowserHistory } from 'history';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
+import { useNavigate } from 'react-router-dom';
 
-const history = createBrowserHistory();
 
 export default function ShippingAddressScreen() {
+    const navigate = useNavigate();
     const userSignin = useSelector(state => state.userSignin);
     const { userInfo } = userSignin;
 
@@ -14,7 +14,7 @@ export default function ShippingAddressScreen() {
     const { shippingAddress } = cart;
 
     if (!userInfo) {
-        history.push('/signin');
+        navigate('/signin');
     }
 
 
@@ -29,7 +29,7 @@ export default function ShippingAddressScreen() {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveShippingAddress({ fullName, address, city, postalCode, country }));
-        history.push('/payment');
+        navigate('/payment');
     };
 
     return <div>

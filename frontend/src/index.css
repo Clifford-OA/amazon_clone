@@ -212,6 +212,10 @@ img.large {
   color: #a02020;
   background-color: #ffe0e0;
 }
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
 
 /* Form */
 
@@ -228,6 +232,9 @@ img.large {
 
 .form label {
   margin: 1rem 0;
+}
+.paymentType label:hover {
+  cursor: pointer;
 }
 
 /* dropdown */

@@ -5,8 +5,10 @@ import { Link, useParams } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
-const history = createBrowserHistory();
 export default function CartScreen(props) {
+    const history = createBrowserHistory();
+    // const navigate = useNavigate();
+
     const { id } = useParams();
     const productId = id;
     const qty = history.location.search

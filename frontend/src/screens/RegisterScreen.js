@@ -1,14 +1,15 @@
 import { createBrowserHistory } from 'history';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-const history = createBrowserHistory();
 
 export default function RegisterScreen() {
+    const history = createBrowserHistory();
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -35,9 +36,9 @@ export default function RegisterScreen() {
 
     useEffect(() => {
         if (userInfo) {
-            history.push(redirect)
+           navigate(redirect)
         };
-    }, [redirect, userInfo])
+    }, [navigate, redirect, userInfo])
 
     return (
         <div>

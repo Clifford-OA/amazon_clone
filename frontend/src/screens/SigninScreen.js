@@ -7,6 +7,7 @@ import { signin } from '../actions/userActions';
 const history = createBrowserHistory();
 
 export default function SigninScreen() {
+    // const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -29,7 +30,7 @@ export default function SigninScreen() {
         if (userInfo) {
             history.push(redirect)
         };
-    }, [redirect, userInfo])
+    }, [ redirect, userInfo])
 
     return (
         <div>

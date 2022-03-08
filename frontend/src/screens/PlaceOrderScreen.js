@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
@@ -10,12 +10,14 @@ import MessageBox from '../components/MessageBox';
 
 
 
-const history = createBrowserHistory();
+
+// const history = createBrowserHistory();
 
 export default function PlaceOrderScreen() {
+    const navigate = useNavigate();
     const cart = useSelector(state => state.cart);
     if (!cart.paymentMethod) {
-        history.push('/payment');
+        navigate('/payment');
     }
 
     const orderCreate = useSelector(state => state.orderCreate);
@@ -36,10 +38,10 @@ export default function PlaceOrderScreen() {
 
     useEffect(() => {
         if (success) {
-            history.push(`/order/${order._id}`);
+            navigate(`/order/${order._id}`);
             dispatch({ type: ORDER_CREATE_RESET });
         }
-    }, [dispatch, order, success]);
+    }, [dispatch, navigate, order, success]);
 
 
     return (
