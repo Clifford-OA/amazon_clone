@@ -30,7 +30,7 @@ export default function SigninScreen() {
         if (userInfo) {
             history.push(redirect)
         };
-    }, [ redirect, userInfo])
+    }, [redirect, userInfo]);
 
     return (
         <div>
