@@ -25,4 +25,4 @@ node_modules
 /frontend/yarn-debug.log*
 /frontend/yarn-error.log*
 .env
-/uploads/*
+/uploads/*.jpg
